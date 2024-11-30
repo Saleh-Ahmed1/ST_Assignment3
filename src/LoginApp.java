@@ -57,7 +57,7 @@ public class LoginApp extends JFrame {
     }
 
     public String authenticateUser(String email) {
-        // adding test comment
+        // adding comment for testing
         String userName = null;
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
             String query = "SELECT name FROM \"User\" WHERE Email = ?";
