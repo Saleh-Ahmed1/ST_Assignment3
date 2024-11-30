@@ -14,7 +14,7 @@ class LoginAppTest {
     public void testSuccessfulLogin() {
         String email = "johndoe@example.com";
         String password = "password123";
-        String result = loginApp.authenticateUser(email);
+        String result = loginApp.authenticateUser(email, password);
         assertNotNull(result, "User should be found");
         assertEquals("John Doe", result, "Expected user name does not match");
     }
@@ -24,7 +24,7 @@ class LoginAppTest {
         String email = "invalid@example.com";
         String password = "password123";
 
-        String result = loginApp.authenticateUser(email);
+        String result = loginApp.authenticateUser(email, password);
         assertNull(result, "User should not be found");
     }
 
@@ -33,7 +33,7 @@ class LoginAppTest {
         String email = "johndoe@example.com";
         String password = "invalid";
 
-        String result = loginApp.authenticateUser(email);
+        String result = loginApp.authenticateUser(email, password);
         assertNull(result, "User should not be found");
     }
 
@@ -41,7 +41,7 @@ class LoginAppTest {
     public void testEmptyEmailField() {
         String email = "";
         String password = "password123";
-        String result = loginApp.authenticateUser(email);
+        String result = loginApp.authenticateUser(email, password);
         assertNull(result, "User should not be found");
     }
 
@@ -49,7 +49,7 @@ class LoginAppTest {
     public void testEmptyPasswordField() {
         String email = "johndoe@example.com";
         String password = "";
-        String result = loginApp.authenticateUser(email);
+        String result = loginApp.authenticateUser(email, password);
         assertNull(result, "User should not be found");
     }
 }
